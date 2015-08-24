@@ -30,6 +30,7 @@ public class Building : MonoBehaviour {
 						message += "\nNot enough rocks! (" + tribe.GetResourceAmount ("rock") + " / 2)";
 					}
 					if (message.Equals ("")) {
+						SoundHandler.PlaySound ("equip");
 						cb.SetJob ("kill");
 						tribe.StoreWood (-5);
 						tribe.StoreRock (-2);
@@ -37,6 +38,7 @@ public class Building : MonoBehaviour {
 						HUDController.PostMessage (message, false);
 					}
 				} else {
+					SoundHandler.PlaySound ("dequip");
 					cb.SetJob ("");
 					tribe.StoreWood (5);
 					tribe.StoreRock (2);

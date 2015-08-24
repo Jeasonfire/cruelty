@@ -92,13 +92,8 @@ public class CharacterBehaviour : MonoBehaviour {
 				}
 				currentCarriedAmount++;
 				currentCollectedResource.resourcesAmount--;
-				switch (currentCarriedType) {
-				case "wood":
-					// play wood sound
-					break;
-				case "rock":
-					// play mine sound
-					break;
+				if (tribe.tribeName.Equals ("player")) {
+					SoundHandler.PlaySound (currentCollectedResource.resourceType);
 				}
 			}
 		}
